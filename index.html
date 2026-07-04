@@ -343,6 +343,22 @@ h1,h2,h3{font-family:var(--font-display); font-weight:400; letter-spacing:.5px;}
 .final-contact{margin-top:40px; font-family:var(--font-data); color:var(--walnut-soft); font-size:.9rem; line-height:2;}
 .final-contact strong{color:var(--walnut); font-family:var(--font-body);}
 
+/* ---- sponsor inquiry form ---- */
+.sponsor-form{display:flex; flex-direction:column; gap:16px; margin-bottom:22px; text-align:right;}
+.form-row{display:flex; flex-direction:column; gap:6px;}
+.form-row label{font-size:.82rem; font-weight:700; color:var(--walnut-soft); font-family:var(--font-data);}
+.form-row input, .form-row select{
+  font-family:var(--font-body); font-size:.95rem; padding:13px 16px; border-radius:12px;
+  border:1.5px solid rgba(46,32,22,.18); background:var(--cream); color:var(--walnut);
+  outline:none; transition:.2s;
+}
+.form-row input:focus, .form-row select:focus{border-color:var(--maroon); box-shadow:0 0 0 3px rgba(124,31,36,.15);}
+.form-row select{appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%237C1F24' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:left 16px center;}
+.form-status{font-family:var(--font-data); font-size:.85rem; margin-top:-8px; margin-bottom:16px; min-height:1.2em;}
+.form-status.ok{color:var(--olive); font-weight:700;}
+.form-status.err{color:var(--maroon); font-weight:700;}
+.btn[disabled]{opacity:.6; cursor:not-allowed; transform:none !important;}
+
 footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--walnut-soft); font-family:var(--font-data); background:var(--cream-deep);}
 </style>
 </head>
@@ -457,7 +473,7 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
         </div>
         <div class="trail-stop" style="--i:3">
           <div class="trail-dot"></div>
-          <div class="trail-card"><div class="trail-year">٢٠٢٣</div><div class="trail-title">الذكرى الخامسة والستون</div><div class="trail-desc">أكثر من ٨٥٠ حاضرًا، مع شراكات كبرى تشمل Decathlon و Yamaha و Fresh و Koki و Kamena.</div></div>
+          <div class="trail-card"><div class="trail-year">٢٠٢٣</div><div class="trail-title">الذكرى الخامسة والستون</div><div class="trail-desc">أكثر من ٨٥٠ حاضرًا، مع شراكات كبرى تشمل Decathlon وYamaha وFresh وKoki وKamena.</div></div>
         </div>
         <div class="trail-stop" style="--i:4">
           <div class="trail-card"><div class="trail-year">٢٠٢٦</div><div class="trail-title">المهرجان السنوي</div><div class="trail-desc">حضور مستهدف متوقع لأكثر من ١٣٠٠ شخص من الكشافين وأولياء الأمور والقادة وشخصيات بارزة.</div></div>
@@ -527,7 +543,7 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
         <a href="#final" class="pkg-cta">تواصل بشأن هذه الباقة</a>
       </div>
 
-            <div class="pkg-card featured reveal" style="--i:2">
+      <div class="pkg-card featured reveal" style="--i:2">
         <div class="ribbon">الأكثر طلبًا</div>
         <div class="pkg-tier">راعي ماسي</div>
         <div class="pkg-name">ماسي</div>
@@ -561,9 +577,10 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
         <a href="#final" class="pkg-cta">تواصل بشأن هذه الباقة</a>
       </div>
 
+      
       <div class="pkg-card reveal" style="--i:0">
         <div class="pkg-tier">باقة الدخول</div>
-        <div class="pkg-name">راعي داعم</div>
+        <div class="pkg-name">راعي فضي</div>
         <div class="pkg-price">١٠٬٠٠٠ <span>جنيه مصري</span></div>
         <p class="pkg-desc">نقطة انطلاق اقتصادية وعالية الكفاءة لبناء شراكة مع العلامات التي تهدف لتعزيز حضورها البصري وتوعية المجتمع.</p>
         <ul class="pkg-features">
@@ -595,7 +612,40 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
         <div>شعاركم هنا</div>
         <div>شعاركم هنا</div>
       </div>
-      <a href="https://wa.me/+201289446951" class="btn btn-primary" style="width:100%; justify-content:center;">انضم إلينا الآن</a>
+
+      <form id="sponsorForm" class="sponsor-form" action="https://formsubmit.co/ajax/bernard.ragheb@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="طلب رعاية جديد — الحفل السنوي ٢٠٢٦">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row">
+          <label for="sf-name">الاسم</label>
+          <input id="sf-name" type="text" name="الاسم" placeholder="اسمك الكامل" required>
+        </div>
+        <div class="form-row">
+          <label for="sf-company">اسم الشركة</label>
+          <input id="sf-company" type="text" name="اسم_الشركة" placeholder="اسم شركتكم" required>
+        </div>
+        <div class="form-row">
+          <label for="sf-email">البريد الإلكتروني</label>
+          <input id="sf-email" type="email" name="البريد_الإلكتروني" placeholder="name@company.com" required>
+        </div>
+        <div class="form-row">
+          <label for="sf-email">رقم الهاتف</label>
+          <input id="sf-email" type="tel" name="الهاتف" placeholder="رقم الهاتف" required>
+        </div>
+        <div class="form-row">
+          <label for="sf-type">نوع الرعاية</label>
+          <select id="sf-type" name="نوع_الرعاية" required>
+            <option value="">اختر الباقة المناسبة</option>
+            <option value="  - راعي بلاتيني (٢٥,٠٠٠ جنيه)">راعي بلاتيني</option>
+            <option value="راعي ماسي (٢٠,٠٠٠ جنيه)">راعي ماسي</option>
+            <option value="راعي ذهبي (١٥,٠٠٠ جنيه)">راعي ذهبي </option>
+            <option value="راعي فضي (١٠,٠٠٠ جنيه)">راعي فضي </option>
+            <option value="غير محدد بعد - أرغب في مزيد من المعلومات">غير محدد بعد</option>
+          </select>
+        </div>
+        <button type="submit" id="sf-submit" class="btn btn-primary" style="width:100%; justify-content:center;">إنضم الينا الآن</button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
       <div class="final-contact">لمناقشة تفاصيل الرعاة والحجز، تواصلوا مع فريق مجموعة كشافة أبو الهول<br><strong>كنيسة قلب يسوع، مصر الجديدة، القاهرة</strong></div>
     </div>
   </div>
@@ -696,7 +746,40 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// ---------- Scroll progress + nav ----------
+// ---------- Sponsor inquiry form ----------
+const sponsorForm = document.getElementById('sponsorForm');
+if(sponsorForm){
+  const statusEl = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('sf-submit');
+  sponsorForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جارِ الإرسال...';
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+
+    fetch(sponsorForm.action, {
+      method:'POST',
+      headers:{ 'Accept':'application/json' },
+      body: new FormData(sponsorForm)
+    }).then(res => {
+      if(res.ok){
+        statusEl.textContent = 'تم إرسال طلبكم بنجاح! سيتواصل فريقنا معكم قريبًا.';
+        statusEl.className = 'form-status ok';
+        sponsorForm.reset();
+        submitBtn.textContent = 'تم الإرسال ✓';
+      } else {
+        throw new Error('submit failed');
+      }
+    }).catch(()=>{
+      statusEl.textContent = 'تعذر الإرسال. برجاء المحاولة مرة أخرى أو المراسلة مباشرة على bernard.ragheb@gmail.com';
+      statusEl.className = 'form-status err';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'إرسال طلب الرعاية';
+    });
+  });
+}
+
 const fill = document.getElementById('trailFill');
 const navLinks = document.querySelectorAll('#sectionNav a');
 const sections = ['hero','about','heritage','stats','timeline','event','packages','final'].map(id=>document.getElementById(id));
