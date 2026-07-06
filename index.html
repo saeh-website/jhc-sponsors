@@ -148,6 +148,16 @@ h1,h2,h3{font-family:var(--font-display); font-weight:400; letter-spacing:.5px;}
 .scroll-cue .line::after{content:""; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--maroon); animation:scrollLine 1.8s ease-in-out infinite;}
 @keyframes scrollLine{0%{top:-100%;}50%{top:0;}100%{top:100%;}}
 
+.site-url-pill{
+  display:inline-flex; align-items:center; gap:8px; margin-top:26px;
+  padding:9px 20px; border-radius:999px; background:var(--cream-deep);
+  border:1.5px solid rgba(46,32,22,.15); color:var(--walnut); text-decoration:none;
+  font-family:var(--font-data); font-size:.85rem; letter-spacing:.5px; direction:ltr;
+  opacity:0; animation:fadeUp .9s ease 1.25s forwards; transition:.25s;
+}
+.site-url-pill:hover{background:var(--maroon); color:var(--cream); border-color:var(--maroon); transform:translateY(-2px);}
+.site-url-pill .dot{width:7px; height:7px; border-radius:50%; background:var(--olive); flex-shrink:0;}
+
 /* ================ SECTION shell ================= */
 .section{padding:120px 8vw;}
 .section-inner{max-width:1180px; margin:0 auto;}
@@ -189,7 +199,7 @@ h1,h2,h3{font-family:var(--font-display); font-weight:400; letter-spacing:.5px;}
 }
 
 /* ================ HERITAGE ================= */
-#heritage{background:linear-gradient(180deg, var(--cream), var(--cream-deep));}
+#heritage{background:linear-gradient(180deg, var(--cream-deep));}
 .heritage-grid{display:grid; grid-template-columns:1fr 1fr; gap:30px;}
 @media (max-width:800px){.heritage-grid{grid-template-columns:1fr;}}
 .tile-card{
@@ -359,6 +369,39 @@ h1,h2,h3{font-family:var(--font-display); font-weight:400; letter-spacing:.5px;}
 .form-status.err{color:var(--maroon); font-weight:700;}
 .btn[disabled]{opacity:.6; cursor:not-allowed; transform:none !important;}
 
+/* ================ WEBSITE PROMO ================= */
+#website{background:linear-gradient(180deg, var(--cream-deep));}
+.website-grid{display:grid; grid-template-columns:1fr 1.05fr; gap:64px; align-items:center;}
+@media (max-width:880px){.website-grid{grid-template-columns:1fr;}}
+.browser-mock{
+  border-radius:20px; overflow:hidden; box-shadow:var(--paper-shadow); background:#fff;
+  border:1px solid rgba(46,32,22,.1);
+}
+.browser-bar{
+  display:flex; align-items:center; gap:8px; padding:12px 16px; background:var(--cream-deep);
+  border-bottom:1px solid rgba(46,32,22,.1);
+}
+.browser-bar .traffic{width:11px; height:11px; border-radius:50%; flex-shrink:0;}
+.browser-bar .traffic.r{background:#d96a5f;}
+.browser-bar .traffic.o{background:var(--gold);}
+.browser-bar .traffic.g{background:var(--olive);}
+.browser-url{
+  flex:1; margin-right:10px; background:#fff; border-radius:999px; padding:6px 14px;
+  font-family:var(--font-data); font-size:.8rem; color:var(--walnut-soft); direction:ltr; text-align:center;
+  border:1px solid rgba(46,32,22,.08);
+}
+.browser-body{
+  padding:50px 30px; text-align:center; background:
+    radial-gradient(circle at 30% 20%, rgba(124,31,36,.06), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(29,85,99,.08), transparent 45%);
+}
+.browser-body img{width:100px; margin:0 auto 18px; display:block; filter:drop-shadow(0 10px 20px rgba(46,32,22,.25));}
+.browser-body .bt{font-family:var(--font-display); font-size:1.6rem; color:var(--walnut);}
+.browser-body .bs{font-family:var(--font-data); font-size:.85rem; color:var(--walnut-soft); margin-top:6px; direction:ltr;}
+.website-features{list-style:none; display:flex; flex-direction:column; gap:14px; margin:24px 0 30px;}
+.website-features li{display:flex; align-items:flex-start; gap:10px; font-size:1rem; color:var(--walnut-soft); line-height:1.7;}
+.website-features li::before{content:"◆"; color:var(--maroon); font-size:.7rem; margin-top:6px; flex-shrink:0;}
+
 footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--walnut-soft); font-family:var(--font-data); background:var(--cream-deep);}
 </style>
 </head>
@@ -372,6 +415,7 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
   <a href="#about" data-label="من نحن"><span>من نحن</span></a>
   <a href="#heritage" data-label="إرثنا"><span>إرثنا</span></a>
   <a href="#stats" data-label="الأرقام"><span>الأرقام</span></a>
+  <a href="#website" data-label="موقعنا"><span>موقعنا</span></a>
   <a href="#timeline" data-label="المسيرة"><span>المسيرة</span></a>
   <a href="#event" data-label="الحفل"><span>الحفل</span></a>
   <a href="#packages" data-label="الباقات"><span>الباقات</span></a>
@@ -392,6 +436,9 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
     <a href="#packages" class="btn btn-primary">استكشف باقات الرعاية</a>
     <a href="#about" class="btn btn-ghost">تعرّف علينا</a>
   </div>
+  <a class="site-url-pill" href="https://jhc.scoutabouelhole.org" target="_blank" rel="noopener">
+    <span class="dot"></span>jhc.scoutabouelhole.org
+  </a>
   <div class="scroll-cue"><span>مرر لأسفل</span><div class="line"></div></div>
 </header>
 
@@ -447,6 +494,34 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
         <div class="stat-num" data-target="9">0</div>
         <div class="stat-label">مجموعات كشفية، منها ٤ مجموعات لجميع الفتية والفتيات، بالإضافة لخمس مجموعات أخرى بروح خدمية تجاه المجتمعات</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEBSITE PROMO ============ -->
+<section id="website" class="section">
+  <div class="section-inner website-grid">
+    <div class="browser-mock reveal-l">
+      <div class="browser-bar">
+        <span class="traffic r"></span><span class="traffic o"></span><span class="traffic g"></span>
+        <div class="browser-url">jhc.scoutabouelhole.org</div>
+      </div>
+      <div class="browser-body">
+        <img src="assets/logo-mosaic.png" alt="شعار مجموعة كشافة أبو الهول">
+        <div class="bt">أثر يدوم</div>
+        <div class="bs">jhc.scoutabouelhole.org</div>
+      </div>
+    </div>
+    <div class="reveal-r">
+      <div class="section-tag">موقعنا الإلكتروني</div>
+      <h2>تابعونا أونلاين على مدار العام</h2>
+      <p style="font-size:1.08rem; line-height:2; color:var(--walnut-soft);">موقعنا الرسمي هو نافذتكم الدائمة على أنشطة المجموعة، ووجهة رقمية يزورها الآلاف سنويًا — مكان مثالي لبقاء علامتكم التجارية حاضرة أمام جمهورنا طوال العام، وليس فقط يوم الحفل.</p>
+      <ul class="website-features">
+        <li>تحديثات مستمرة عن فعاليات وأخبار المجموعة على مدار العام</li>
+        <li>شعارات الرعاة تظهر ضمن زيارات تفوق ٢٠ ألف زيارة سنويًا</li>
+        <li>أرشيف كامل لتاريخ المجموعة ومناسباتها منذ عام ١٩٥٧</li>
+      </ul>
+      <a class="btn btn-primary" href="https://jhc.scoutabouelhole.org" target="_blank" rel="noopener">زيارة الموقع الآن</a>
     </div>
   </div>
 </section>
@@ -651,7 +726,7 @@ footer.credit{text-align:center; padding:30px; font-size:.78rem; color:var(--wal
   </div>
 </section>
 
-<footer class="credit">مجموعة كشافة أبو الهول © ١٩٥٧ – ٢٠٢٦ · أثر يدوم</footer>
+<footer class="credit">مجموعة كشافة أبو الهول © ١٩٥٧ – ٢٠٢٦ · أثر يدوم · <a href="https://jhc.scoutabouelhole.org" target="_blank" rel="noopener" style="color:var(--maroon); text-decoration:none; font-weight:700;">jhc.scoutabouelhole.org</a></footer>
 
 <script>
 // ---------- Hero mosaic shard assembly ----------
@@ -782,7 +857,7 @@ if(sponsorForm){
 
 const fill = document.getElementById('trailFill');
 const navLinks = document.querySelectorAll('#sectionNav a');
-const sections = ['hero','about','heritage','stats','timeline','event','packages','final'].map(id=>document.getElementById(id));
+const sections = ['hero','about','heritage','stats','website','timeline','event','packages','final'].map(id=>document.getElementById(id));
 
 function onScroll(){
   const scrollTop = window.scrollY;
